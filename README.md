@@ -13,3 +13,14 @@
     * point_test_data2_no_defects_###.pcd for defect free work piece
     * point_test_data2_###.pcd for work piece with defects
     * def_location.pcd containing isolated defects
+
+# Steps to run:
+ 1) Use Ubuntu 20.04
+ 2) Install Python packages:
+    * ROS
+    * Open3d
+    * Pytransform3d
+    * Numpy
+ 3) Download this repo
+ 4) Rosrun the two node scripts
+ 5) Enjoy
