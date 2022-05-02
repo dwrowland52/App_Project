@@ -6,22 +6,24 @@ from pytransform3d import rotations as pr
 from pytransform3d import transformations as pt
 from pytransform3d.transform_manager import TransformManager
 import open3d as o3d
-from find_pt_cloud_Diff import find_Differences
+
 
 # %%
 # opening the point cloud data
-pcd2 = o3d.io.read_point_cloud("def_location.pcd")
+pcd2 = o3d.io.read_point_cloud("../PCD/def_location.pcd")
 p = np.asarray(pcd2.points)
 
 
 # %%
 # Determining the known transformation matrix
 of2df = pt.transform_from_pq(np.array([-0.1, 0, 0.02, 0, 0, 0,0]))
-#print(of2df)
+print('Optical Frame to Depth Frame Matrix:')
+print(of2df)
 bl2df = pt.transform_from_pq(np.array([0.126918, -0.467213, 0.624013, -0.0145864, 0.721838,-0.691879, -0.00635957]))
-#print(bl2df)
+print('Base Link to Depth Frame Matrix:')
+print(bl2df)
 
-# %%
+# %% Using TransformManager to stop known matrices and use it to solve for our desired transformation
 tm = TransformManager()
 tm.add_transform("optical_frame", "depth_frame", of2df)
 tm.add_transform("base_link", "depth_frame", bl2df)
@@ -29,11 +31,13 @@ tm.add_transform("base_link", "depth_frame", bl2df)
 # Obtaining the required transformation matrix
 of2bl = tm.get_transform("base_link", "optical_frame")
 Tf= np.asarray(of2bl)
-#print(Tf)
+print('Overall TF MAtrix:')
+print(Tf)
 
 # %%
-#multiplying point cloud data with transformation matrix
+# Multiplying point cloud data with transformation matrix
 point =[]
+
 for i in range(len(p)):
     po = np.asarray(np.insert(p[i],3,1))
     

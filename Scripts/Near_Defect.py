@@ -167,11 +167,10 @@ def find_Differences(file_name_Clean_PCD, file_name_Defect_PCD):
 
 if __name__ == '__main__':
 
-    #Naming our node to EE_Pose
-    cwd = os.getcwd()
+
     # File names of PCD data ~ Assuming within same directory
-    clean_PCD = cwd + '/point_test_data2_no_defects_1650316080972000.pcd'
-    defect_PCD = cwd + '/point_test_data2_1650316030972999.pcd'
+    clean_PCD = '../PCD/point_test_data2_no_defects_1650316080972000.pcd'
+    defect_PCD = '../PCD/point_test_data2_1650316030972999.pcd'
 
     # Calling find_Differences function to store calculated difference locations
     def_loc = np.asarray(find_Differences(clean_PCD, defect_PCD))
