@@ -26,6 +26,7 @@
 * Their demo uses a panda manipulator we will be adding the UR3 to the work space
 * Download the config file in your source directory with: git clone -b melodic-devel https://github.com/ros-industrial/universal_robot.git
 * Add our node .py scripts to: /home/’UserName’/ws_moveit/devel/lib/moveit_tutorials/doc/move_group_python_interface/scripts
+* In Near_Defect.py - update file paths for clean and defect PCD files
 * Make the script executable and add it to the Cmakelists.txt
 * Catkin Build and source the workspace:
   * source ~/ws_moveit/devel/setup.bash
