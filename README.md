@@ -32,6 +32,9 @@ rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 catkin build
 source devel/setup.bash
+sudo apt install ros-noetic-rviz-animated-view-controller
+pip install open3d
+pip install pytransform3d
 ```
 * There will be an error about being unable to resolve a dependency on tvf_construction. That's fine since we aren't using it.
 * Add the files in App_Project/PCD to ~/demo_ws. To run the demo, these files need to be in you pwd. The other files in App_Project are unnecessary, since theyre included in tvar_planner_sim_demo.git
