@@ -65,4 +65,8 @@ rosrun pcl_ros pcd_to_pointcloud defect_cloud_base_link.pcd 1
 
 ### *To Visualize Pointclouds and Transformations (For Students):*
 * Pip install Open3d and pytransform3d
+---
+pip install open3d
+pip install pytransform3d
+```
 * Run scripts compare_pt_clouds.py or Transform_Script.py in desired IDE
