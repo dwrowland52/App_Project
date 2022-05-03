@@ -36,7 +36,6 @@ sudo apt install ros-noetic-rviz-animated-view-controller
 pip install open3d
 pip install pytransform3d
 ```
-* There will be an error about being unable to resolve a dependency on tvf_construction. That's fine since we aren't using it.
 * Add the files in App_Project/PCD to ~/demo_ws. To run the demo, these files need to be in you pwd. The other files in App_Project are unnecessary, since theyre included in tvar_planner_sim_demo.git
 
 ## Steps to Run the Demo:
@@ -64,19 +63,6 @@ rosrun pcl_ros pcd_to_pointcloud defect_cloud_base_link.pcd 1
 * In Rviz, move the interactive TVF so the defects displayed in the point cloud are on top of the workpiece. Rotate the workpiece very slightly about one of the horizontal axes. Right click any of the green waypoints and select "Move to Pose". If the end effector approaches a defect, you will see twist messages being published to /jog_arm_server/delta_jog_cmds.
 
 
-### *For ROS Nodes:*
-* Have ROS Noetic installed
-* Install MoveIt - Binary install
-* Follow along with MoveIt tutorial
-* Their demo uses a panda manipulator we will be adding the UR3 to the work space
-* Download the config file in your source directory with: git clone -b melodic-devel https://github.com/ros-industrial/universal_robot.git
-* Add our node .py scripts to: /home/’UserName’/ws_moveit/devel/lib/moveit_tutorials/doc/move_group_python_interface/scripts
-* In Near_Defect.py - update file paths for clean and defect PCD files
-* Make the script executable and add it to the Cmakelists.txt
-* Catkin Build and source the workspace:
-  * source ~/ws_moveit/devel/setup.bash
-* Ready to go
-
-### *For Data Cleaning:*
+### *To Visualize Pointclouds and Transformations (For Students):*
 * Pip install Open3d and pytransform3d
 * Run scripts compare_pt_clouds.py or Transform_Script.py in desired IDE
