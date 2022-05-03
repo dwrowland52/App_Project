@@ -18,13 +18,13 @@
 ## Steps to run:
 
 * To run only the python scripts, clone this repo:
-'''
+```
 git clone https://github.com/dwrowland52/App_Project.git
-'''
+```
 * To run the full demo:
-'''
+```
 git clone https://github.com/UTNuclearRobotics/tvar_planner_sim_demo.git
-'''
+```
 
 ### *For ROS Nodes:*
 * Have ROS Noetic installed
