@@ -59,6 +59,7 @@ roslaunch tvar_planner ur3_simulation_imarkers_wip.launch tvf_id:=104 sim:=false
 rosrun moveit_tutorials EE_pose_Publisher.py
 rosrun moveit_tutorials Near_Defect.py 
 rostopic echo /jog_arm_server/delta_jog_cmds 
+rosrun pcl_ros pcd_to_pointcloud defect_cloud_base_link.pcd 1
 ```
 * In Rviz, move the interactive TVF so the defects displayed in the point cloud are on top of the workpiece. Rotate the workpiece very slightly about one of the horizontal axes. Right click any of the green waypoints and select "Move to Pose". If the end effector approaches a defect, you will see twist messages being published to /jog_arm_server/delta_jog_cmds.
 
