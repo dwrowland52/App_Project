@@ -23,8 +23,16 @@ git clone https://github.com/dwrowland52/App_Project.git
 ```
 * To run the full demo:
 ```
+mkdir -p ~/demo_ws/src
+cd ~/demo_ws/src
 git clone https://github.com/UTNuclearRobotics/tvar_planner_sim_demo.git
+cd ..
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+catkin build
+source devel/setup.bash
 ```
+
 
 ### *For ROS Nodes:*
 * Have ROS Noetic installed
