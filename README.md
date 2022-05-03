@@ -15,14 +15,15 @@
     * point_test_data2_###.pcd for work piece with defects
     * def_location.pcd containing isolated defects
 
-## Steps to run:
+## Steps to Download:
 
 * To run only the python scripts, clone this repo:
 ```
 git clone https://github.com/dwrowland52/App_Project.git
 ```
-* To run the full demo:
+* To download the full demo (Meredith):
 ```
+git clone https://github.com/dwrowland52/App_Project.git
 mkdir -p ~/demo_ws/src
 cd ~/demo_ws/src
 git clone https://github.com/UTNuclearRobotics/tvar_planner_sim_demo.git
@@ -32,6 +33,30 @@ rosdep install --from-paths src --ignore-src -r -y
 catkin build
 source devel/setup.bash
 ```
+* Add the files in App_Project/PCD to ~/demo_ws. To run the demo, these files need to be in you pwd. The other files in App_Project are unnecessary, since theyre included in tvar_planner_sim_demo.git
+
+## Steps to Run the Demo:
+* Make sure demo_ws is sourced in all terminals:
+```
+source devel/setup.bash
+```
+or add this to your .bashrc:
+```
+source ~/demo_ws/devel/setup.bash
+```
+* Launch gazebo and tvar_planner. Allow a few seconds between each of these commands. 
+```
+roslaunch ur_gazebo ur3_bringup.launch gui:=false
+roslaunch ur3_moveit_config ur3_moveit_planning_execution.launch sim:=true
+roslaunch tvar_planner ur3_simulation_imarkers_wip.launch tvf_id:=104 sim:=false
+```
+* Launch python nodes and echo the delta_jog_cmds topic if you want to know when the end effector is near a defect:
+```
+rosrun moveit_tutorials EE_pose_Publisher.py
+rosrun moveit_tutorials Near_Defect.py 
+rostopic echo /jog_arm_server/delta_jog_cmds 
+```
+* In Rviz, move the interactive TVF so the defects displayed in the point cloud are on top of the workpiece. Rotate the workpiece very slightly about one of the horizontal axes. Right click any of the green waypoints and select "Move to Pose". If the end effector approaches a defect, you will see twist messages being published to /jog_arm_server/delta_jog_cmds.
 
 
 ### *For ROS Nodes:*
