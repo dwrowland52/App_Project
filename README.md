@@ -9,6 +9,7 @@
     * Near_Defect.py - Creates a ROS node that listens to EE_XYZ topic and publishes twist commands when EE is near a defect location
   * Figures:
     * Contains screen shots used in the presentation slides
+    * The video demo is within our presentation slides, we tried to add it but the file size was too large
   * PCD:
     * Holds the three .pcd files
     * point_test_data2_no_defects_###.pcd for defect free work piece
